@@ -10,6 +10,10 @@ Route::get('/', function () {
 Route::get('/hello', function(){
     return 'Bonjour le monde!';
     });
+ 
+Route::get('/schnaps', function () {
+    return view('schnaps');
+});
     
 Route::get('/dashboard', function () {
     return view('dashboard');
