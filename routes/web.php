@@ -2,9 +2,20 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
+
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/home', function () {
+    return View::make('pages.home');
+});
+
+Route::get('/about', function () {
+    return View::make('pages.about');
 });
 
 Route::get('/hello', function(){
@@ -24,5 +35,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::resource('roles', RoleController::class);
+
+// Axel
+//Routes::get("chemin", [TableController::class, "methode"]);
 
 require __DIR__.'/auth.php';
