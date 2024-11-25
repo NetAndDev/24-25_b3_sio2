@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use app\Models\User;
 
 class UserController extends Controller
-{
+{ 
+    public function methode()
+    {
+        $une_liste = User::all();
+        return(view('nom_vue', compact("$une_liste")));
+                            // ou [clé -> valeur, ...]
+    }
     /**
      * Display a listing of the resource.
      */
